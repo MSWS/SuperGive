@@ -1,31 +1,29 @@
 package xyz.msws.supergive.selectors;
 
-import java.util.List;
-
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
+
+import java.util.List;
 
 /**
  * A selector should convert a string into a list of entities that match the
  * string.
- * 
- * @author imodm
  *
+ * @author imodm
  */
 public interface Selector {
-	default List<Entity> getEntities(String arg) {
-		return getEntities(arg, null);
-	}
+    default List<Entity> getEntities(String arg) {
+        return getEntities(arg, null);
+    }
 
-	List<Entity> getEntities(String arg, CommandSender sender);
+    List<Entity> getEntities(String arg, CommandSender sender);
 
-	String getDescriptor(String arg, CommandSender sender);
+    String getDescriptor(String arg, CommandSender sender);
 
-	/**
-	 * 
-	 * @param current
-	 * @return
-	 */
-	List<String> tabComplete(String current);
+    /**
+     * @param current
+     * @return
+     */
+    List<String> tabComplete(String current);
 
 }

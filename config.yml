@@ -4,95 +4,95 @@ Loadouts:
     ==: Loadout
     Name: 'Diamond Armor'
     Items:
-    - 'diamondhelmet'
-    - 'diamondchestplate'
-    - 'diamondleggings'
-    - 'diamondboots'
+      - 'diamondhelmet'
+      - 'diamondchestplate'
+      - 'diamondleggings'
+      - 'diamondboots'
   BuildKit:
     ==: Loadout
     Name: 'Build Loadout'
     Clear: false
     Items:
-    - 'whitewool 64'
-    - 'redwool 64'
-    - 'orangewool 64'
-    - 'yellowwool 64'
-    - 'greenwool 64'
-    - 'bluewool 64'
-    - 'magentawool 64'
-    - 'purplewool 64'
-    - 'blackwool 64'
+      - 'whitewool 64'
+      - 'redwool 64'
+      - 'orangewool 64'
+      - 'yellowwool 64'
+      - 'greenwool 64'
+      - 'bluewool 64'
+      - 'magentawool 64'
+      - 'purplewool 64'
+      - 'blackwool 64'
   Food:
     ==: Loadout
     Name: 'Food'
     Smart: true
     Items:
-    - 'cookedchicken 64'
-    - 'cookedsteak 64'
-    - 'goldencarrot 64'
-    - 'cookie 64'
-    - 'cake 64'
-    - 'cookedmutton 64'
-    - 'enchantedgoldenapple 64'
-    - 'pumpkinpie 64'
+      - 'cookedchicken 64'
+      - 'cookedsteak 64'
+      - 'goldencarrot 64'
+      - 'cookie 64'
+      - 'cake 64'
+      - 'cookedmutton 64'
+      - 'enchantedgoldenapple 64'
+      - 'pumpkinpie 64'
   FullLoadout:
     ==: Loadout
     Name: 'Full Loadout'
     Clear: true
     Items:
-    - 'diamondhelmet diamondhelmet aqua:1 mending:1 protection:4 respiration:3 thorns:3 unbreaking:3'
-    - 'diamondchestplate mending:1 prot:4 thorns:3 unbreaking:3'
-    - 'diamondleggings mending:1 protection:4 thorns:3 unbreaking:3'
-    - 'diamondboots featherfalling:4 frostwalker:2 mend:1 protection:4 soulspeed:3 thorns:3 unbreak:3'
-    - 'diamondsword fireaspect:2 knockback:2 looting:3 mending:1 sharp:5 sweeping:3 unbreaking:3'
-    - 'bow flame:1 infinity:1 power:5 punch:2 unbreak:3'
-    - 'diamondaxe eff:5 fortune:3 mending:1 sharp:5 unbreak:3'
-    - 'diamondpick eff:5 fortune:3 mending:1 unbreak:3'
-    - 'waterbucket'
-    - 'enchantedgoldenapple 64'
-    - 'arrow'
-    - 'shield'
-    - 'cookedsteak 64'
-    - 'goldencarrot 64'
+      - 'diamondhelmet diamondhelmet aqua:1 mending:1 protection:4 respiration:3 thorns:3 unbreaking:3'
+      - 'diamondchestplate mending:1 prot:4 thorns:3 unbreaking:3'
+      - 'diamondleggings mending:1 protection:4 thorns:3 unbreaking:3'
+      - 'diamondboots featherfalling:4 frostwalker:2 mend:1 protection:4 soulspeed:3 thorns:3 unbreak:3'
+      - 'diamondsword fireaspect:2 knockback:2 looting:3 mending:1 sharp:5 sweeping:3 unbreaking:3'
+      - 'bow flame:1 infinity:1 power:5 punch:2 unbreak:3'
+      - 'diamondaxe eff:5 fortune:3 mending:1 sharp:5 unbreak:3'
+      - 'diamondpick eff:5 fortune:3 mending:1 unbreak:3'
+      - 'waterbucket'
+      - 'enchantedgoldenapple 64'
+      - 'arrow'
+      - 'shield'
+      - 'cookedsteak 64'
+      - 'goldencarrot 64'
   banners:
     ==: Loadout
     Items:
-    - 'banner base:white triangle_bottom:black triangles_bottom:white triangle_top:black triangles_top:white rhombus_middle:black circle_middle:light_blue'
-    - 'banner base:lightblue triangle_top:black rhombus_middle:black triangle_bottom:black curly_border:black flower:light_blue circle_middle:blue'
-    - 'banner banner:green bricks:cyan gradient_up:magenta globe:black'
-    - 'banner base:black gradient_up:cyan rhombus_middle:black curly_border:black border:black'
-    - 'banner base:black stripe_middle:white stripe_center:white border:white triangles_top:white triangles_bottom:white straight_cross:black'
-    - 'banner base:purple stripe_small:magenta bricks:purple curly_border:magenta border:black'
-    - 'banner base:yellow rhombus_middle:green mojang:light_blue border:black stripe_bottom:black stripe_top:black gradient_up:black'
-    - 'banner base:white stripe_small:purple stripe_left:black stripe_right:black square_bottom_left:black square_bottom_right:black triangles_bottom:black'
-    - 'banner base:blue mojang:light_gray gradient_up:light_blue gradient:black triangles_bottom:black circle_middle:white square_bottom_left:black'
+      - 'banner base:white triangle_bottom:black triangles_bottom:white triangle_top:black triangles_top:white rhombus_middle:black circle_middle:light_blue'
+      - 'banner base:lightblue triangle_top:black rhombus_middle:black triangle_bottom:black curly_border:black flower:light_blue circle_middle:blue'
+      - 'banner banner:green bricks:cyan gradient_up:magenta globe:black'
+      - 'banner base:black gradient_up:cyan rhombus_middle:black curly_border:black border:black'
+      - 'banner base:black stripe_middle:white stripe_center:white border:white triangles_top:white triangles_bottom:white straight_cross:black'
+      - 'banner base:purple stripe_small:magenta bricks:purple curly_border:magenta border:black'
+      - 'banner base:yellow rhombus_middle:green mojang:light_blue border:black stripe_bottom:black stripe_top:black gradient_up:black'
+      - 'banner base:white stripe_small:purple stripe_left:black stripe_right:black square_bottom_left:black square_bottom_right:black triangles_bottom:black'
+      - 'banner base:blue mojang:light_gray gradient_up:light_blue gradient:black triangles_bottom:black circle_middle:white square_bottom_left:black'
     Name: 'Banners'
   spawners:
     ==: Loadout
     Items:
-    - 'SPAWNER 1 entity:pig name:Pig Spawner'
-    - 'SPAWNER 1 entity:creeper name:Creeper Spawner'
-    - 'SPAWNER 1 entity:irongolem name:Iron Golem Spawner'
-    - 'SPAWNER 1 entity:chicken name:Chicken Spawner'
-    - 'SPAWNER 1 entity:cow name:Cow Spawner'
-    - 'SPAWNER 1 entity:enderman name:Enderman Spawner'
-    - 'SPAWNER 1 entity:arrow name:Arrow Spawner'
-    - 'SPAWNER 1 entity:polarbear name:Polar Bear Spawner'
-    - 'SPAWNER 1 entity:painting name:Painting Spawner'
+      - 'SPAWNER 1 entity:pig name:Pig Spawner'
+      - 'SPAWNER 1 entity:creeper name:Creeper Spawner'
+      - 'SPAWNER 1 entity:irongolem name:Iron Golem Spawner'
+      - 'SPAWNER 1 entity:chicken name:Chicken Spawner'
+      - 'SPAWNER 1 entity:cow name:Cow Spawner'
+      - 'SPAWNER 1 entity:enderman name:Enderman Spawner'
+      - 'SPAWNER 1 entity:arrow name:Arrow Spawner'
+      - 'SPAWNER 1 entity:polarbear name:Polar Bear Spawner'
+      - 'SPAWNER 1 entity:painting name:Painting Spawner'
     Name: 'Spawners'
   fireworks:
     ==: Loadout
     Items:
-    - 'firework 1 firework:179|49|44 240|240|240,102|137|211,BALL_LARGE,flicker,trail
+      - 'firework 1 firework:179|49|44 240|240|240,102|137|211,BALL_LARGE,flicker,trail
       firework:222|207|42 240|240|240,30|27|27 37|49|146,BALL,flicker,trail firework:179|49|44
       59|81|26 222|207|42 235|136|68,37|49|146 216|129|152 102|137|211 195|84|205,STAR,power3'
-    - 'firework 1 firework:30|27|27 171|171|171,179|49|44 37|49|146 240|240|240,BALL,flicker,trail
+      - 'firework 1 firework:30|27|27 171|171|171,179|49|44 37|49|146 240|240|240,BALL,flicker,trail
       firework:222|207|42 235|136|68,179|49|44 102|137|211 240|240|240,BURST,flicker,trail,power1'
-    - 'firework 1 firework:30|27|27 59|81|26,179|49|44 222|207|42 235|136|68,CREEPER,flicker,trail,power2'
-    - 'firework 1 firework:30|27|27 171|171|171 240|240|240,222|207|42 102|137|211
+      - 'firework 1 firework:30|27|27 59|81|26,179|49|44 222|207|42 235|136|68,CREEPER,flicker,trail,power2'
+      - 'firework 1 firework:30|27|27 171|171|171 240|240|240,222|207|42 102|137|211
       235|136|68,BURST,flicker,trail firework:179|49|44 102|137|211 240|240|240,37|49|146
       171|171|171 67|67|67,BURST,power3'
-    - 'firework 1 firework:179|49|44 81|48|26 171|171|171 67|67|67 216|129|152
+      - 'firework 1 firework:179|49|44 81|48|26 171|171|171 67|67|67 216|129|152
       240|240|240,37|49|146 40|118|151 67|67|67 222|207|42 102|137|211,BALL_LARGE,flicker,trail
       firework:37|49|146 171|171|171 222|207|42 102|137|211,30|27|27 59|81|26 81|48|26
       216|129|152 65|205|52 195|84|205 240|240|240,BALL,flicker,trail firework:37|49|146
@@ -103,25 +103,25 @@ Loadouts:
   potions:
     ==: Loadout
     Items:
-    - potion 1 name:&6&lSpeedy &e&lBoi soul_speed:20000 SPEED:20000:2 JUMP:40000:1
-      SLOW_FALLING:10000:4
-    - potion 1 name:&7&lMiner &8&lBoi FAST_DIGGING:50000 NIGHT_VISION:40000 SATURATION:60000
-      SLOW_FALLING:40000
-    - potion 1 name:&c&lFighty &4&lBoi soul_speed:60000 SPEED:60000:1 REGENERATION:80000:1
-      INCREASE_DAMAGE:160000:2 ABSORPTION:75000:3
+      - potion 1 name:&6&lSpeedy &e&lBoi soul_speed:20000 SPEED:20000:2 JUMP:40000:1
+        SLOW_FALLING:10000:4
+      - potion 1 name:&7&lMiner &8&lBoi FAST_DIGGING:50000 NIGHT_VISION:40000 SATURATION:60000
+        SLOW_FALLING:40000
+      - potion 1 name:&c&lFighty &4&lBoi soul_speed:60000 SPEED:60000:1 REGENERATION:80000:1
+        INCREASE_DAMAGE:160000:2 ABSORPTION:75000:3
     Name: Potions
   all:
     ==: Loadout
     Items:
-    - 'diamondsword name:Cool Sword sharpness:1 flag:hideenchants unbreakable: lore:Dis is cool sword'
-    - 'firework 1 firework:30|27|27 59|81|26,179|49|44 222|207|42 235|136|68,CREEPER,flicker,trail,power2'
-    - 'spawner entity:arrow'
-    - 'enchantedbook stored:sharpness:5 name:Cool Sharpness Book'
-    - 'GREEN_BANNER 1 bricks:cyan gradient_up:magenta globe:black'
-    - 'commandblock command:say I did it guys'
-    - 'potion 1 name:&6&lSpeedy &e&lBoi soul_speed:20000 SPEED:20000:2 JUMP:40000:1
+      - 'diamondsword name:Cool Sword sharpness:1 flag:hideenchants unbreakable: lore:Dis is cool sword'
+      - 'firework 1 firework:30|27|27 59|81|26,179|49|44 222|207|42 235|136|68,CREEPER,flicker,trail,power2'
+      - 'spawner entity:arrow'
+      - 'enchantedbook stored:sharpness:5 name:Cool Sharpness Book'
+      - 'GREEN_BANNER 1 bricks:cyan gradient_up:magenta globe:black'
+      - 'commandblock command:say I did it guys'
+      - 'potion 1 name:&6&lSpeedy &e&lBoi soul_speed:20000 SPEED:20000:2 JUMP:40000:1
       SLOW_FALLING:10000:4'
-    - 'playerhead owner:MSWS name:Da Owner'
+      - 'playerhead owner:MSWS name:Da Owner'
     Name: All Example
 # SmartEquip is used by SuperGive to conveniently give items to players in the proper
 # equipment slot, or by preference. An item will try to go top down and if not found
@@ -130,33 +130,33 @@ Loadouts:
 # it.
 SmartEquip:
   HELMET:
-  - 'HEAD'
+    - 'HEAD'
   CHESTPLATE:
-  - 'CHEST'
+    - 'CHEST'
   ELYTRA:
-  - 'CHEST'
+    - 'CHEST'
   LEGGING:
-  - 'LEGS'
+    - 'LEGS'
   BOOTS:
-  - 'FEET'
+    - 'FEET'
   SWORD:
-  - '0'
-  - 'HAND'
+    - '0'
+    - 'HAND'
   SHIELD:
-  - 'OFF_HAND'
+    - 'OFF_HAND'
   PICKAXE:
-  - '1'
-  - '2'
+    - '1'
+    - '2'
   BOW:
-  - '1'
-  - 'OFF_HAND'
+    - '1'
+    - 'OFF_HAND'
   AXE:
-  - '2'
+    - '2'
   COOKED:
-  - '6'
-  - '7'
+    - '6'
+    - '7'
   ARROW:
-  - '9'
+    - '9'
   BUCKET:
-  - '8'
-  - 'OFF_HAND'
+    - '8'
+    - 'OFF_HAND'
