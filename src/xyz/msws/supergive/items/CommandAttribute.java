@@ -21,12 +21,10 @@ public class CommandAttribute implements ItemAttribute {
         if (!line.toLowerCase().startsWith("command:"))
             return item;
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof BlockStateMeta))
+        if (!(meta instanceof BlockStateMeta bsm))
             return item;
-        BlockStateMeta bsm = (BlockStateMeta) meta;
-        if (!(bsm.getBlockState() instanceof CommandBlock))
+        if (!(bsm.getBlockState() instanceof CommandBlock command))
             return item;
-        CommandBlock command = (CommandBlock) bsm.getBlockState();
         command.setCommand(line.substring("command:".length()));
         bsm.setBlockState(command);
         item.setItemMeta(bsm);
@@ -36,9 +34,8 @@ public class CommandAttribute implements ItemAttribute {
     @Override
     public String getModification(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof BlockStateMeta))
+        if (!(meta instanceof BlockStateMeta bsm))
             return null;
-        BlockStateMeta bsm = (BlockStateMeta) meta;
         if (!(bsm.getBlockState() instanceof CommandBlock))
             return null;
         return "command:" + ((CommandBlock) bsm.getBlockState()).getCommand();
@@ -66,9 +63,8 @@ public class CommandAttribute implements ItemAttribute {
     @Override
     public String humanReadable(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof BlockStateMeta))
+        if (!(meta instanceof BlockStateMeta bsm))
             return null;
-        BlockStateMeta bsm = (BlockStateMeta) meta;
         if (!(bsm.getBlockState() instanceof CommandBlock))
             return null;
         return "that runs " + ((CommandBlock) bsm.getBlockState()).getCommand();

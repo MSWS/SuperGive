@@ -36,20 +36,22 @@ public class AnnotatedSelector implements Selector {
         String key = MSG.normalize(arg.substring(1));
         List<Entity> result = new ArrayList<>();
         switch (key) {
-            case "world":
+            case "world" -> {
                 if (!(sender instanceof Player))
                     return null;
                 if (!sender.hasPermission("supergive.selector.annotated.world"))
                     return null;
                 return ((Player) sender).getWorld().getEntities();
-            case "worldplayers":
+            }
+            case "worldplayers" -> {
                 if (!(sender instanceof Player))
                     return null;
                 if (!sender.hasPermission("supergive.selector.annotated.worldplayers"))
                     return null;
                 return ((Player) sender).getWorld().getEntities().stream().filter(e -> e.getType() == EntityType.PLAYER)
                         .collect(Collectors.toList());
-            case "all":
+            }
+            case "all" -> {
                 if (!sender.hasPermission("supergive.selector.annotated.all"))
                     return null;
                 for (World w : Bukkit.getWorlds()) {
@@ -66,21 +68,21 @@ public class AnnotatedSelector implements Selector {
                     MSG.tell(sender, "", "you can do so in the config by disabling the");
                     MSG.tell(sender, "", "AllSelectorWarning in the config.");
                 }
-
                 return result;
-            case "everyone":
-            case "players":
+            }
+            case "everyone", "players" -> {
                 if (!sender.hasPermission("supergive.selector.annotated.players"))
                     return null;
                 return new ArrayList<>(Bukkit.getOnlinePlayers());
-            case "me":
-            case "self":
+            }
+            case "me", "self" -> {
                 if (!(sender instanceof Entity))
                     return null;
                 if (!sender.hasPermission("supergive.selector.annotated.self"))
                     return null;
                 return Collections.singletonList(((Entity) sender));
-            default:
+            }
+            default -> {
                 if (key.startsWith("world")) {
                     // Sender can specify world-limited targets
                     if (!(sender instanceof Player))
@@ -115,6 +117,7 @@ public class AnnotatedSelector implements Selector {
                                 w.getEntities().stream().filter(e -> e.getType() == type).collect(Collectors.toList()));
                     return result;
                 }
+            }
         }
         return null;
     }

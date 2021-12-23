@@ -26,7 +26,7 @@ public class WorldSelector implements Selector {
         if (!arg.toLowerCase().startsWith("world:"))
             return null;
         String n = Utils.getOption(arg.substring("world:".length()),
-                Bukkit.getWorlds().stream().map(w -> w.getName()).collect(Collectors.toList()));
+                Bukkit.getWorlds().stream().map(World::getName).collect(Collectors.toList()));
         if (n == null)
             return null;
         World world = Bukkit.getWorld(n);
@@ -38,7 +38,7 @@ public class WorldSelector implements Selector {
     @Override
     public String getDescriptor(String arg, CommandSender sender) {
         String n = Utils.getOption(arg.substring("world:".length()),
-                Bukkit.getWorlds().stream().map(w -> w.getName()).collect(Collectors.toList()));
+                Bukkit.getWorlds().stream().map(World::getName).collect(Collectors.toList()));
         return "entities in " + n;
     }
 

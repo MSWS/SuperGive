@@ -28,6 +28,19 @@ public class ContentsAttribute implements ItemAttribute {
         this.plugin = plugin;
     }
 
+    private static boolean allow(String key) {
+        if (cache.containsKey(key))
+            return cache.get(key);
+        for (String s : allowed) {
+            if (MSG.normalize(key).contains(s)) {
+                cache.put(key, true);
+                return true;
+            }
+        }
+        cache.put(key, false);
+        return false;
+    }
+
     @Override
     public ItemStack modify(String line, ItemStack item) {
         if (!line.toLowerCase().startsWith("contents:#"))
@@ -36,14 +49,14 @@ public class ContentsAttribute implements ItemAttribute {
         if (!(meta instanceof BlockStateMeta))
             return item;
         BlockState bs = ((BlockStateMeta) meta).getBlockState();
-        if (!(bs instanceof Container))
+        if (!(bs instanceof Container container))
             return item;
-        Container container = (Container) bs;
 
+        String replace = line.substring("contents:#".length()).replace(" ", "");
         Loadout ld = plugin.getModule(LoadoutManager.class)
-                .getLoadout(line.substring("contents:#".length()).replace(" ", ""));
+                .getLoadout(replace);
         if (ld == null) {
-            MSG.warn("Unknown loadout: " + line.substring("contents:#".length()).replace(" ", ""));
+            MSG.warn("Unknown loadout: " + replace);
             return item;
         }
 
@@ -55,27 +68,6 @@ public class ContentsAttribute implements ItemAttribute {
         ((BlockStateMeta) meta).setBlockState(container);
         item.setItemMeta(meta);
         return item;
-    }
-
-    @Override
-    public String getModification(ItemStack item) {
-        ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof BlockStateMeta))
-            return null;
-        BlockState bs = ((BlockStateMeta) meta).getBlockState();
-        if (!(bs instanceof Container))
-            return null;
-        Container container = (Container) bs;
-        for (Loadout load : plugin.getModule(LoadoutManager.class).getLoadouts()) {
-            if (load.getName() == null)
-                continue;
-            ItemStack[] cont = container.getInventory().getContents();
-
-            if (!itemsEqual(cont, load.getItems()))
-                continue;
-            return "contents:#" + load.getName();
-        }
-        return null;
     }
 
     private static final Map<String, Boolean> cache = new HashMap<>();
@@ -97,17 +89,24 @@ public class ContentsAttribute implements ItemAttribute {
         return true;
     }
 
-    private static boolean allow(String key) {
-        if (cache.containsKey(key))
-            return cache.get(key);
-        for (String s : allowed) {
-            if (MSG.normalize(key.toString()).contains(s)) {
-                cache.put(key, true);
-                return true;
-            }
+    @Override
+    public String getModification(ItemStack item) {
+        ItemMeta meta = item.getItemMeta();
+        if (!(meta instanceof BlockStateMeta))
+            return null;
+        BlockState bs = ((BlockStateMeta) meta).getBlockState();
+        if (!(bs instanceof Container container))
+            return null;
+        for (Loadout load : plugin.getModule(LoadoutManager.class).getLoadouts()) {
+            if (load.getName() == null)
+                continue;
+            ItemStack[] cont = container.getInventory().getContents();
+
+            if (!itemsEqual(cont, load.getItems()))
+                continue;
+            return "contents:#" + load.getName();
         }
-        cache.put(key, false);
-        return false;
+        return null;
     }
 
     @Override
@@ -141,9 +140,8 @@ public class ContentsAttribute implements ItemAttribute {
         if (!(meta instanceof BlockStateMeta))
             return null;
         BlockState bs = ((BlockStateMeta) meta).getBlockState();
-        if (!(bs instanceof Container))
+        if (!(bs instanceof Container container))
             return null;
-        Container container = (Container) bs;
         for (Loadout load : plugin.getModule(LoadoutManager.class).getLoadouts()) {
             if (load.getName() == null)
                 continue;

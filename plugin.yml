@@ -1,6 +1,6 @@
 main: xyz.msws.supergive.SuperGive
 name: SuperGive
-version: 1.0.1
+version: 1.0.2
 author: MSWS
 api-version: 1.13
 description: Improved give command
@@ -51,7 +51,6 @@ permissions:
       supergive.attribute.potion: true
       supergive.attribute.stored: true
       supergive.attribute.unbreakable: true
-      supergive.attribute.contents: true
       supergive.attribute.command: true
   supergive.command.loadout:
     description: Access to the /loadout command

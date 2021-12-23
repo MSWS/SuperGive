@@ -1,5 +1,6 @@
 package xyz.msws.supergive.items;
 
+import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.attribute.AttributeModifier.Operation;
@@ -46,7 +47,7 @@ public class VanillaAttribute implements ItemAttribute {
     @Override
     public String getModification(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!meta.hasAttributeModifiers() || meta.getAttributeModifiers().isEmpty())
+        if (meta == null || !meta.hasAttributeModifiers() || meta.getAttributeModifiers() == null || meta.getAttributeModifiers().isEmpty())
             return null;
         StringBuilder result = new StringBuilder();
         for (Entry<Attribute, AttributeModifier> entry : meta.getAttributeModifiers().entries()) {
@@ -60,11 +61,11 @@ public class VanillaAttribute implements ItemAttribute {
     @Override
     public String humanReadable(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!meta.hasAttributeModifiers() || meta.getAttributeModifiers().isEmpty())
+        if (meta == null || !meta.hasAttributeModifiers() || meta.getAttributeModifiers() == null || meta.getAttributeModifiers().isEmpty())
             return null;
         List<String> attributes = new ArrayList<>();
         for (Entry<Attribute, AttributeModifier> entry : meta.getAttributeModifiers().entries()) {
-            attributes.add(MSG.theme() + MSG.camelCase(entry.getKey().toString()) + " &7of " + MSG.theme()
+            attributes.add(MSG.camelCase(entry.getKey().toString()) + " &7of " + ChatColor.YELLOW
                     + entry.getValue().getAmount());
         }
         return "attributed with " + String.join(" &7and a ", attributes);

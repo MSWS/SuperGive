@@ -32,11 +32,10 @@ public class GenerateCommand extends BukkitCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!testPermission(sender))
             return true;
-        if (!(sender instanceof Player)) {
+        if (!(sender instanceof Player player)) {
             Lang.MUST_BE_PLAYER.send(sender);
             return true;
         }
-        Player player = (Player) sender;
         ItemStack item = player.getInventory().getItemInHand();
         if (item.getType() == Material.AIR) {
             Lang.MUST_HAVE_ITEM.send(sender);

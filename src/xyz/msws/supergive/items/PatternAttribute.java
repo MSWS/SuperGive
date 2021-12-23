@@ -1,5 +1,6 @@
 package xyz.msws.supergive.items;
 
+import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.block.banner.Pattern;
 import org.bukkit.block.banner.PatternType;
@@ -7,7 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BannerMeta;
 import org.bukkit.inventory.meta.ItemMeta;
-import xyz.msws.supergive.utils.MSG;
 import xyz.msws.supergive.utils.Utils;
 
 import java.awt.*;
@@ -25,9 +25,8 @@ public class PatternAttribute implements ItemAttribute {
     @Override
     public ItemStack modify(String line, ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof BannerMeta))
+        if (!(meta instanceof BannerMeta banner))
             return item;
-        BannerMeta banner = (BannerMeta) meta;
         PatternType type = null;
         DyeColor color = null;
 
@@ -39,7 +38,7 @@ public class PatternAttribute implements ItemAttribute {
             return item;
         }
 
-		try {
+        try {
             color = DyeColor.valueOf(line.split(":")[1].toUpperCase());
         } catch (IllegalArgumentException e) {
             org.bukkit.Color c = Utils.getColor(line.split(":")[1]);
@@ -59,9 +58,8 @@ public class PatternAttribute implements ItemAttribute {
     @Override
     public String getModification(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof BannerMeta))
+        if (!(meta instanceof BannerMeta banner))
             return null;
-        BannerMeta banner = (BannerMeta) meta;
         StringBuilder result = new StringBuilder();
         for (Pattern patt : banner.getPatterns()) {
             result.append(patt.getPattern().toString().toLowerCase()).append(":").append(patt.getColor().toString().toLowerCase())
@@ -105,9 +103,8 @@ public class PatternAttribute implements ItemAttribute {
     @Override
     public String humanReadable(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof BannerMeta))
+        if (!(meta instanceof BannerMeta banner))
             return null;
-        BannerMeta banner = (BannerMeta) meta;
         StringBuilder result = new StringBuilder();
         try {
             for (Pattern patt : banner.getPatterns()) {
@@ -115,7 +112,7 @@ public class PatternAttribute implements ItemAttribute {
             }
         } catch (NoSuchMethodError e) {
             for (Pattern patt : banner.getPatterns()) {
-                result.append(MSG.theme()).append(patt.getPattern().toString().toLowerCase()).append(":")
+                result.append(ChatColor.GREEN).append(patt.getPattern().toString().toLowerCase()).append(":")
                         .append(patt.getColor().toString().toLowerCase()).append(" ");
             }
         }

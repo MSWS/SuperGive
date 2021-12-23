@@ -33,9 +33,8 @@ public class OwnerAttribute implements ItemAttribute {
     @Override
     public String getModification(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof SkullMeta))
+        if (!(meta instanceof SkullMeta skull))
             return null;
-        SkullMeta skull = (SkullMeta) meta;
         return "owner:" + skull.getOwningPlayer().getName();
     }
 
@@ -61,9 +60,8 @@ public class OwnerAttribute implements ItemAttribute {
     @Override
     public String humanReadable(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof SkullMeta))
+        if (!(meta instanceof SkullMeta skull))
             return null;
-        SkullMeta skull = (SkullMeta) meta;
         return "owned by " + skull.getOwningPlayer().getName();
     }
 

@@ -1,5 +1,6 @@
 package xyz.msws.supergive.items;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
@@ -98,14 +99,14 @@ public class EnchantmentAttribute implements ItemAttribute {
         String result = "&6enchanted with ";
         try {
             for (Entry<Enchantment, Integer> ench : item.getEnchantments().entrySet()) {
-                enchantments.add(MSG.theme() + ench.getKey().getKey().getKey()
+                enchantments.add(ChatColor.BLUE + ench.getKey().getKey().getKey()
                         + (ench.getValue() == 1 ? "" : " " + ench.getValue()));
             }
         } catch (NoSuchMethodError e) {
             // 1.8 Compatibility
             for (Entry<Enchantment, Integer> ench : item.getEnchantments().entrySet()) {
                 enchantments.add(
-                        MSG.theme() + ench.getKey().getName() + (ench.getValue() == 1 ? "" : " " + ench.getValue()));
+                        ChatColor.BLUE + ench.getKey().getName() + (ench.getValue() == 1 ? "" : " " + ench.getValue()));
             }
         }
 

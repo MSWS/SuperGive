@@ -28,12 +28,12 @@ public class FireworkAttribute implements ItemAttribute {
         if (!line.startsWith("firework:"))
             return item;
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof FireworkMeta))
+        if (!(meta instanceof FireworkMeta fire))
             return item;
-        FireworkMeta fire = (FireworkMeta) meta;
 
-        String cString = line.substring("firework:".length()).split(",")[0],
-                fString = line.substring("firework:".length()).split(",").length > 1 ? line.split(",")[1] : null;
+        String[] split = line.substring("firework:".length()).split(",");
+        String cString = split[0],
+                fString = split.length > 1 ? line.split(",")[1] : null;
 
         List<Color> colors = new ArrayList<>();
         for (String c : cString.split(" ")) {
@@ -55,13 +55,9 @@ public class FireworkAttribute implements ItemAttribute {
 
         for (String s : line.split(",")) {
             switch (s.toLowerCase()) {
-                case "flicker":
-                    effect.withFlicker();
-                    break;
-                case "trail":
-                    effect.withTrail();
-                    break;
-                default:
+                case "flicker" -> effect.withFlicker();
+                case "trail" -> effect.withTrail();
+                default -> {
                     if (s.startsWith("power")) {
                         try {
                             fire.setPower(Integer.parseInt(s.substring("power".length()).trim()));
@@ -73,7 +69,7 @@ public class FireworkAttribute implements ItemAttribute {
                         effect.with(type);
                     } catch (IllegalArgumentException ignored) {
                     }
-                    break;
+                }
             }
         }
 
@@ -92,9 +88,8 @@ public class FireworkAttribute implements ItemAttribute {
     @Override
     public String getModification(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof FireworkMeta))
+        if (!(meta instanceof FireworkMeta fire))
             return null;
-        FireworkMeta fire = (FireworkMeta) meta;
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < fire.getEffectsSize(); i++) {
             FireworkEffect effect = fire.getEffects().get(i);
@@ -153,7 +148,7 @@ public class FireworkAttribute implements ItemAttribute {
         }
         for (Type type : Type.values()) {
             if (type.toString().toLowerCase().startsWith(c.toLowerCase())) {
-                result.add(prev + type.toString());
+                result.add(prev + type);
             }
         }
 

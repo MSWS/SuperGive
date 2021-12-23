@@ -146,11 +146,10 @@ public class SuperGive extends JavaPlugin {
         modules.add(module);
     }
 
-    @SuppressWarnings("unchecked")
     public <T extends AbstractModule> T getModule(Class<T> mod) {
         for (AbstractModule m : getModules())
             if (mod.isAssignableFrom(m.getClass()))
-                return (T) m;
+                return mod.cast(m);
         return null;
     }
 

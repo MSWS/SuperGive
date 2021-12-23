@@ -28,11 +28,9 @@ public class RadiusSelector implements Selector {
         } catch (NumberFormatException e) {
             return null;
         }
-        if (sender instanceof CommandBlock) {
-            CommandBlock block = (CommandBlock) sender;
+        if (sender instanceof CommandBlock block) {
             return new ArrayList<>(block.getWorld().getNearbyEntities(block.getLocation(), radius, radius, radius));
-        } else if (sender instanceof Player) {
-            Player player = (Player) sender;
+        } else if (sender instanceof Player player) {
             return new ArrayList<>(player.getWorld().getNearbyEntities(player.getLocation(), radius, radius, radius));
         }
         return null;

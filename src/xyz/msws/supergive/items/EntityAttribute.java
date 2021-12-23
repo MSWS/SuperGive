@@ -25,12 +25,10 @@ public class EntityAttribute implements ItemAttribute {
         if (!line.startsWith("entity:"))
             return item;
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof BlockStateMeta))
+        if (!(meta instanceof BlockStateMeta bsm))
             return item;
-        BlockStateMeta bsm = (BlockStateMeta) meta;
-        if (!(bsm.getBlockState() instanceof CreatureSpawner))
+        if (!(bsm.getBlockState() instanceof CreatureSpawner spawner))
             return item;
-        CreatureSpawner spawner = (CreatureSpawner) bsm.getBlockState();
 
         EntityType type = Utils.getEntityType(line.split(":")[1]);
         if (type == null) {
@@ -51,12 +49,10 @@ public class EntityAttribute implements ItemAttribute {
     @Override
     public String getModification(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof BlockStateMeta))
+        if (!(meta instanceof BlockStateMeta bsm))
             return null;
-        BlockStateMeta bsm = (BlockStateMeta) meta;
-        if (!(bsm.getBlockState() instanceof CreatureSpawner))
+        if (!(bsm.getBlockState() instanceof CreatureSpawner spawner))
             return null;
-        CreatureSpawner spawner = (CreatureSpawner) bsm.getBlockState();
         return "entity:" + MSG.normalize(spawner.getSpawnedType().toString());
     }
 
@@ -86,12 +82,10 @@ public class EntityAttribute implements ItemAttribute {
     @Override
     public String humanReadable(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof BlockStateMeta))
+        if (!(meta instanceof BlockStateMeta bsm))
             return null;
-        BlockStateMeta bsm = (BlockStateMeta) meta;
-        if (!(bsm.getBlockState() instanceof CreatureSpawner))
+        if (!(bsm.getBlockState() instanceof CreatureSpawner spawner))
             return null;
-        CreatureSpawner spawner = (CreatureSpawner) bsm.getBlockState();
         return "that spawns " + MSG.camelCase(spawner.getSpawnedType().toString());
     }
 

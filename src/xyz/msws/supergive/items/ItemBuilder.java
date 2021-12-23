@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.inventory.ItemStack;
@@ -121,7 +122,7 @@ public class ItemBuilder extends AbstractModule {
                 continue;
             result.append(mod).append(" ");
         }
-        return (MSG.normalize(item.getType().toString()) + " " + item.getAmount() + " " + result.toString()).trim();
+        return (MSG.normalize(item.getType().toString()) + " " + item.getAmount() + " " + result).trim();
     }
 
     public String humanReadable(ItemStack item) {
@@ -134,12 +135,12 @@ public class ItemBuilder extends AbstractModule {
                 .append(MSG.FORMAT_INFO);
         result.append(MSG.camelCase(item.getType().toString()))
                 .append((item.getAmount() == 1 || item.getType().toString().toLowerCase().endsWith("s")) ? " " : "s ");
-        for (int i = 0; i < attr.size(); i++) {
-            String mod = attr.get(i).humanReadable(item);
+        for (ItemAttribute itemAttribute : attr) {
+            String mod = itemAttribute.humanReadable(item);
             if (mod == null || mod.isEmpty())
                 continue;
 
-            result.append(MSG.theme()).append(mod).append(" ");
+            result.append(ChatColor.GRAY).append(mod).append(" ");
         }
         return result.toString().trim();
     }

@@ -119,7 +119,7 @@ public class GiveCommand extends BukkitCommand {
 
         Loadout loadout = null;
         switch (args[1].toLowerCase()) {
-            case "@hand":
+            case "@hand" -> {
                 if (!sender.hasPermission("supergive.command.give.hand")) {
                     Lang.NO_PERMISSION.send(sender, "supergive.command.give.hand");
                     return true;
@@ -128,8 +128,8 @@ public class GiveCommand extends BukkitCommand {
                     loadout = new Loadout(((Player) sender).getInventory().getItemInHand());
                     item = ((Player) sender).getInventory().getItemInHand();
                 }
-                break;
-            case "@inventory":
+            }
+            case "@inventory" -> {
                 if (!sender.hasPermission("supergive.command.give.inventory")) {
                     Lang.NO_PERMISSION.send(sender, "supergive.command.give.inventory");
                     return true;
@@ -139,8 +139,8 @@ public class GiveCommand extends BukkitCommand {
                     return true;
                 }
                 loadout = new Loadout(((Player) sender).getInventory().getContents());
-                break;
-            case "@block":
+            }
+            case "@block" -> {
                 if (!sender.hasPermission("supergive.command.give.block")) {
                     Lang.NO_PERMISSION.send(sender, "supergive.command.give.block");
                     return true;
@@ -160,8 +160,8 @@ public class GiveCommand extends BukkitCommand {
                     return true;
                 }
                 loadout = new Loadout(((Container) target.getState()).getInventory().getContents());
-                break;
-            case "@enderchest":
+            }
+            case "@enderchest" -> {
                 if (!sender.hasPermission("supergive.command.give.enderchest")) {
                     Lang.NO_PERMISSION.send(sender, "supergive.command.give.enderchest");
                     return true;
@@ -171,8 +171,8 @@ public class GiveCommand extends BukkitCommand {
                     return true;
                 }
                 loadout = new Loadout(((Player) sender).getEnderChest().getContents());
-                break;
-            default:
+            }
+            default -> {
                 if (args[1].startsWith("#")) {
                     loadout = plugin.getModule(LoadoutManager.class).matchLoadout(args[1].substring(1));
                     if (loadout == null) {
@@ -190,6 +190,7 @@ public class GiveCommand extends BukkitCommand {
                     return true;
                 }
                 loadout = new Loadout(item);
+            }
         }
 
         if (loadout == null) {
@@ -215,7 +216,7 @@ public class GiveCommand extends BukkitCommand {
         }
 
         if (sender instanceof Player) {
-            CommandGiveItemEvent event = new CommandGiveItemEvent((Player) sender, targets, loadout);
+            CommandGiveItemEvent event = new CommandGiveItemEvent(sender, targets, loadout);
             Bukkit.getPluginManager().callEvent(event);
             targets = event.getReceivers();
         }

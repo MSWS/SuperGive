@@ -24,7 +24,7 @@ public class UnbreakableAttribute implements ItemAttribute {
     public ItemStack modify(String line, ItemStack item) {
         if (!line.startsWith("unbreakable:"))
             return item;
-        boolean val = Boolean.valueOf(line.substring("unbreakable:".length()));
+        boolean val = Boolean.parseBoolean(line.substring("unbreakable:".length()));
 
         ItemMeta meta = item.getItemMeta();
         try {

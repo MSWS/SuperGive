@@ -45,16 +45,6 @@ public class MSG {
     public static ChatColor STRIKE = ChatColor.STRIKETHROUGH;
     public static final ChatColor RESET = ChatColor.RESET;
 
-    private static int index = 0;
-
-    private static final ChatColor[] theme = new ChatColor[]{ChatColor.GREEN, ChatColor.DARK_GREEN, ChatColor.YELLOW,
-            ChatColor.GOLD, ChatColor.AQUA, ChatColor.BLUE};
-
-    public static ChatColor theme() {
-        index = (index + 1) % theme.length;
-        return theme[index];
-    }
-
     public static void log(String message) {
         Bukkit.getLogger().log(Level.INFO, message);
     }
@@ -65,12 +55,6 @@ public class MSG {
 
     public static void error(String message) {
         Bukkit.getLogger().log(Level.SEVERE, message);
-    }
-
-    public static void printStackTrace() {
-        StackTraceElement[] elements = Thread.currentThread().getStackTrace();
-        for (int i = 2; i < elements.length; i++)
-            log(elements[i].toString());
     }
 
     public static void tell(CommandSender sender, Object msg) {
@@ -114,18 +98,6 @@ public class MSG {
      */
     public static String normalize(String value) {
         return value.toLowerCase().replaceAll("[^a-z]", "");
-    }
-
-    public static String oo(boolean status) {
-        return (status ? "&aOn" : "&cOff") + MSG.DEFAULT;
-    }
-
-    public static String tf(boolean bool) {
-        return (bool ? "&aTrue" : "&cFalse") + MSG.DEFAULT;
-    }
-
-    public static String ed(boolean is) {
-        return (is ? "&aEnabled" : "&cDisabled") + MSG.DEFAULT;
     }
 
     /**

@@ -1,5 +1,6 @@
 package xyz.msws.supergive.items;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.inventory.ItemFlag;
@@ -76,8 +77,7 @@ public class ItemFlagAttribute implements ItemAttribute {
         if (meta.getItemFlags().isEmpty())
             return null;
 
-        List<String> flags = new ArrayList<>(meta.getItemFlags().stream().map(f -> MSG.theme() + MSG.camelCase(f.toString()))
-                .collect(Collectors.toList()));
+        List<String> flags = meta.getItemFlags().stream().map(f -> ChatColor.YELLOW + MSG.camelCase(f.toString())).collect(Collectors.toList());
         return "with the flag" + (flags.size() == 1 ? "" : "s") + ": &e" + String.join("&7, &e", flags);
     }
 

@@ -55,11 +55,10 @@ public class LoadoutCommand extends BukkitCommand {
         if (!testPermission(sender))
             return true;
         if (args.length == 0) {
-            if (!(sender instanceof Player)) {
+            if (!(sender instanceof Player player)) {
                 Lang.MISSING_ARGUMENT.send(sender);
                 return true;
             }
-            Player player = (Player) sender;
             if (lm.getLoadoutNames().isEmpty()) {
                 Lang.NO_LOADOUTS.send(sender);
                 return true;
@@ -103,7 +102,7 @@ public class LoadoutCommand extends BukkitCommand {
         Player player;
         String name;
         switch (args[0].toLowerCase()) {
-            case "create":
+            case "create" -> {
                 if (!sender.hasPermission("supergive.command.loadout.create")) {
                     Lang.NO_PERMISSION.send(sender, "supergive.command.loadout.create");
                     return true;
@@ -117,20 +116,16 @@ public class LoadoutCommand extends BukkitCommand {
                     Lang.SPECIFY_NAME.send(sender);
                     return true;
                 }
-
                 name = String.join(" ", (String[]) ArrayUtils.subarray(args, 1, args.length));
                 if (lm.getLoadout(MSG.normalize(name)) != null) {
                     Lang.LOADOUT_EXISTS.send(sender, name);
                     return true;
                 }
-
                 Loadout loadout = new Loadout(player.getInventory().getContents());
                 loadout.setName(name);
-
                 LoadoutCreateEvent event = new LoadoutCreateEvent(player, loadout);
                 Bukkit.getPluginManager().callEvent(event);
                 loadout = event.getLoadout();
-
                 lm.addLoadout(MSG.normalize(name), loadout);
                 Lang.LOADOUT_CREATED.send(sender, name);
                 for (ItemStack item : loadout.getItems()) {
@@ -139,7 +134,8 @@ public class LoadoutCommand extends BukkitCommand {
                     MSG.tell(sender, "&7- " + plugin.getBuilder().humanReadable(item));
                 }
                 return true;
-            case "edit":
+            }
+            case "edit" -> {
                 if (!sender.hasPermission("supergive.command.loadout.edit")) {
                     Lang.NO_PERMISSION.send(sender, "supergive.command.loadout.edit");
                     return true;
@@ -174,14 +170,11 @@ public class LoadoutCommand extends BukkitCommand {
                     Lang.SPECIFY_NAME.send(sender);
                     return true;
                 }
-
                 if (loadouts.containsKey(player.getUniqueId())) {
                     Lang.LOADOUT_ALREADY_EDITING.send(sender, loadouts.get(player.getUniqueId()));
                     return true;
                 }
-
                 name = String.join(" ", (String[]) ArrayUtils.subarray(args, 1, args.length));
-
                 Loadout load = lm.getLoadout(name);
                 if (load == null) {
                     Lang.UNKNOWN_LOADOUT.send(sender, name);
@@ -191,14 +184,13 @@ public class LoadoutCommand extends BukkitCommand {
                     Lang.NO_PERMISSION.send(sender, "supergive.command.loadout.edit." + name);
                     return true;
                 }
-
                 items.put(player.getUniqueId(), player.getInventory().getContents());
                 player.getInventory().clear();
                 load.give(new DynamicHolder((InventoryHolder) player));
                 Lang.LOADOUT_EDITING.send(sender, name);
                 loadouts.put(player.getUniqueId(), name);
-                break;
-            case "delete":
+            }
+            case "delete" -> {
                 if (!sender.hasPermission("supergive.command.loadout.delete")) {
                     Lang.NO_PERMISSION.send(sender, "supergive.command.loadout.delete");
                     return true;
@@ -207,14 +199,11 @@ public class LoadoutCommand extends BukkitCommand {
                     Lang.MUST_BE_PLAYER.send(sender);
                     return true;
                 }
-                player = (Player) sender;
                 if (args.length <= 1) {
                     Lang.SPECIFY_NAME.send(sender);
                     return true;
                 }
-
                 name = String.join(" ", (String[]) ArrayUtils.subarray(args, 1, args.length));
-
                 if (lm.getLoadout(name) == null) {
                     Lang.UNKNOWN_LOADOUT.send(sender, name);
                     return true;
@@ -228,8 +217,8 @@ public class LoadoutCommand extends BukkitCommand {
                 } else {
                     Lang.LOADOUT_NOT_DELETED.send(sender, name);
                 }
-                break;
-            case "cancel":
+            }
+            case "cancel" -> {
                 if (!(sender instanceof Player)) {
                     Lang.MUST_BE_PLAYER.send(sender);
                     return true;
@@ -242,10 +231,8 @@ public class LoadoutCommand extends BukkitCommand {
                 Lang.LOADOUT_CANCELED.send(sender, loadouts.get(player.getUniqueId()));
                 loadouts.remove(player.getUniqueId());
                 player.getInventory().setContents(items.get(player.getUniqueId()));
-                break;
-            default:
-                Lang.INVALID_ARGUMENT.send(sender);
-                break;
+            }
+            default -> Lang.INVALID_ARGUMENT.send(sender);
         }
         return true;
     }

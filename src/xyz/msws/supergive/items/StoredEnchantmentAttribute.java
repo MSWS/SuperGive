@@ -24,9 +24,8 @@ public class StoredEnchantmentAttribute implements ItemAttribute {
         if (!line.startsWith("stored:"))
             return item;
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof EnchantmentStorageMeta))
+        if (!(meta instanceof EnchantmentStorageMeta book))
             return item;
-        EnchantmentStorageMeta book = (EnchantmentStorageMeta) meta;
         Enchantment ench = Utils.getEnchantment(line.split(":")[1]);
         if (ench == null) {
             MSG.warn("Unknown enchantment: " + line);
@@ -47,9 +46,8 @@ public class StoredEnchantmentAttribute implements ItemAttribute {
     @Override
     public String getModification(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof EnchantmentStorageMeta))
+        if (!(meta instanceof EnchantmentStorageMeta book))
             return null;
-        EnchantmentStorageMeta book = (EnchantmentStorageMeta) meta;
         StringBuilder builder = new StringBuilder();
         try {
             for (Entry<Enchantment, Integer> entry : book.getStoredEnchants().entrySet()) {
@@ -109,9 +107,8 @@ public class StoredEnchantmentAttribute implements ItemAttribute {
     @Override
     public String humanReadable(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if (!(meta instanceof EnchantmentStorageMeta))
+        if (!(meta instanceof EnchantmentStorageMeta book))
             return null;
-        EnchantmentStorageMeta book = (EnchantmentStorageMeta) meta;
         List<String> enchantments = new ArrayList<>();
 
         String result = "&6storing &a";

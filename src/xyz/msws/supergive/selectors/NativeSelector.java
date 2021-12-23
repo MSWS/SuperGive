@@ -1,11 +1,11 @@
 package xyz.msws.supergive.selectors;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import xyz.msws.supergive.SuperGive;
 import xyz.msws.supergive.modules.AbstractModule;
 import xyz.msws.supergive.modules.ModulePriority;
-import xyz.msws.supergive.utils.MSG;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class NativeSelector extends AbstractModule implements Selector {
                     result = res;
                 } else {
                     // Filter entities that aren't included
-                    result = result.stream().filter(re -> res.contains(re)).collect(Collectors.toList());
+                    result = result.stream().filter(res::contains).collect(Collectors.toList());
                 }
             }
         }
@@ -65,11 +65,11 @@ public class NativeSelector extends AbstractModule implements Selector {
                     continue;
                 if (result.isEmpty()) {
                     result = res;
-                    msg.append(MSG.theme()).append(sel.getDescriptor(string, sender));
+                    msg.append(ChatColor.GOLD).append(sel.getDescriptor(string, sender));
                 } else {
                     // Filter entities that aren't included
-                    result = result.stream().filter(re -> res.contains(re)).collect(Collectors.toList());
-                    msg.append(" &7that are ").append(MSG.theme()).append(sel.getDescriptor(string, sender));
+                    result = result.stream().filter(res::contains).collect(Collectors.toList());
+                    msg.append(" &7that are ").append(ChatColor.DARK_GREEN).append(sel.getDescriptor(string, sender));
                 }
             }
         }

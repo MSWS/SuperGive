@@ -114,7 +114,7 @@ public class Loadout implements ConfigurationSerializable {
     }
 
     /**
-     * Set whether or not to clear an inventory when giving this loadout
+     * Set whether to clear an inventory when giving this loadout
      *
      * @param clear
      */
@@ -123,7 +123,7 @@ public class Loadout implements ConfigurationSerializable {
     }
 
     /**
-     * Get whether or not the loadout clears the inventory
+     * Get whether the loadout clears the inventory
      *
      * @return
      */
@@ -132,7 +132,7 @@ public class Loadout implements ConfigurationSerializable {
     }
 
     /**
-     * Set whether or not the loadout equips using the SmartEquip method (config)
+     * Set whether the loadout equips using the SmartEquip method (config)
      *
      * @param value
      */
@@ -141,7 +141,7 @@ public class Loadout implements ConfigurationSerializable {
     }
 
     /**
-     * Get whether or not the loadout uses SmartEquip
+     * Get whether the loadout uses SmartEquip
      *
      * @return
      */
@@ -202,7 +202,7 @@ public class Loadout implements ConfigurationSerializable {
     }
 
     /**
-     * Returns the list of items in a human readable format
+     * Returns the list of items in a human-readable format
      *
      * @return
      */
@@ -218,7 +218,7 @@ public class Loadout implements ConfigurationSerializable {
         if (builder.toString().isEmpty()) {
             return "No items";
         }
-        return builder.toString().substring(0, builder.length() - 2);
+        return builder.substring(0, builder.length() - 2);
     }
 
     /**
@@ -235,7 +235,7 @@ public class Loadout implements ConfigurationSerializable {
         }
         if (builder.toString().isEmpty())
             return "&7No items";
-        return builder.toString().substring(0, builder.length() - 1);
+        return builder.substring(0, builder.length() - 1);
     }
 
     /**

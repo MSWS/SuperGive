@@ -12,18 +12,20 @@ import xyz.msws.supergive.utils.MSG;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.*;
-import java.util.Map.Entry;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- * Module that manages all commands, use to enable/disable specific commands.
+ * Module that manages all commands, used to enable/disable specific commands.
  *
  * @author imodm
  */
+@SuppressWarnings("JavaReflectionMemberAccess")
 public class CommandModule extends AbstractModule implements Listener {
 
     private Map<Command, Boolean> commands;
-
     private CommandMap map;
 
     public CommandModule(SuperGive plugin) {
@@ -70,7 +72,7 @@ public class CommandModule extends AbstractModule implements Listener {
     }
 
     public void enableCommands(List<Command> commands) {
-        commands.forEach(c -> enableCommand(c));
+        commands.forEach(this::enableCommand);
     }
 
     public void enableCommand(Command command) {
@@ -86,18 +88,12 @@ public class CommandModule extends AbstractModule implements Listener {
     }
 
     public void disableCommands(List<Command> commands) {
-        commands.forEach(cmd -> disableCommand(cmd));
+        commands.forEach(this::disableCommand);
     }
 
     public void disableCommand(Command cmd) {
-        Iterator<Entry<String, Command>> it = getKnownCommands().entrySet().iterator();
 
-        while (it.hasNext()) {
-            Entry<String, Command> c = it.next();
-            if (c.getValue().equals(cmd)) {
-                it.remove();
-            }
-        }
+        getKnownCommands().entrySet().removeIf(c -> c.getValue().equals(cmd));
 
         commands.put(cmd, false);
         try {
@@ -149,7 +145,7 @@ public class CommandModule extends AbstractModule implements Listener {
 
     @Override
     public void disable() {
-        disableCommands(new ArrayList<Command>(commands.keySet()));
+        disableCommands(new ArrayList<>(commands.keySet()));
     }
 
     /*
