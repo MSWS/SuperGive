@@ -18,7 +18,7 @@ import java.util.*;
  *
  * @author imodm
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "ConstantConditions"})
 @SerializableAs("Loadout")
 public class Loadout implements ConfigurationSerializable {
     private ItemStack[] items = null;
@@ -152,7 +152,7 @@ public class Loadout implements ConfigurationSerializable {
     /**
      * Gets all items
      *
-     * @return
+     * @return list of items
      */
     public ItemStack[] getItems() {
         return items;
@@ -162,7 +162,7 @@ public class Loadout implements ConfigurationSerializable {
      * Handles clearing and smart equipping, wraps holder into a
      * {@link DynamicHolder}
      *
-     * @param holder
+     * @param dyn Holder to give item to
      */
     public void give(DynamicHolder dyn) {
         if (clear)
@@ -231,7 +231,7 @@ public class Loadout implements ConfigurationSerializable {
         for (ItemStack item : items) {
             if (item == null || item.getType() == Material.AIR)
                 continue;
-            builder.append("&7" + SuperGive.getPlugin().getBuilder().humanReadable(item)).append("\n");
+            builder.append("&7").append(SuperGive.getPlugin().getBuilder().humanReadable(item)).append("\n");
         }
         if (builder.toString().isEmpty())
             return "&7No items";
@@ -264,7 +264,7 @@ public class Loadout implements ConfigurationSerializable {
                 EquipmentSlot slot = null;
                 try {
                     slot = EquipmentSlot.valueOf(option.toUpperCase());
-                } catch (IllegalArgumentException e) {
+                } catch (IllegalArgumentException ignored) {
                 }
                 if (slot != null) {
                     ItemStack old = dyn.getLiving().getEquipment().getItem(slot);
@@ -287,7 +287,7 @@ public class Loadout implements ConfigurationSerializable {
                 }
                 dyn.getInventory().setItem(slot, item);
                 return (old == null || old.getType() == Material.AIR) ? new ItemStack(Material.AIR) : old;
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException ignored) {
             }
         }
         return null;

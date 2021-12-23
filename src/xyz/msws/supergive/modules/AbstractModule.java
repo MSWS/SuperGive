@@ -5,7 +5,7 @@ import xyz.msws.supergive.SuperGive;
 public abstract class AbstractModule {
     protected String id;
     protected boolean enabled;
-    protected SuperGive plugin;
+    protected final SuperGive plugin;
 
     public AbstractModule(SuperGive plugin) {
         this.plugin = plugin;

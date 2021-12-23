@@ -38,10 +38,8 @@ public class PatternAttribute implements ItemAttribute {
         } catch (IllegalArgumentException e) {
             return item;
         }
-        if (type == null)
-            return item;
 
-        try {
+		try {
             color = DyeColor.valueOf(line.split(":")[1].toUpperCase());
         } catch (IllegalArgumentException e) {
             org.bukkit.Color c = Utils.getColor(line.split(":")[1]);
@@ -66,7 +64,7 @@ public class PatternAttribute implements ItemAttribute {
         BannerMeta banner = (BannerMeta) meta;
         StringBuilder result = new StringBuilder();
         for (Pattern patt : banner.getPatterns()) {
-            result.append(patt.getPattern().toString().toLowerCase() + ":" + patt.getColor().toString().toLowerCase())
+            result.append(patt.getPattern().toString().toLowerCase()).append(":").append(patt.getColor().toString().toLowerCase())
                     .append(" ");
         }
         return result.toString().trim();
@@ -113,12 +111,11 @@ public class PatternAttribute implements ItemAttribute {
         StringBuilder result = new StringBuilder();
         try {
             for (Pattern patt : banner.getPatterns()) {
-                result.append(net.md_5.bungee.api.ChatColor.of(new Color(patt.getColor().getColor().asRGB()))
-                        + patt.getPattern().toString().toLowerCase()).append(" ");
+                result.append(net.md_5.bungee.api.ChatColor.of(new Color(patt.getColor().getColor().asRGB()))).append(patt.getPattern().toString().toLowerCase()).append(" ");
             }
         } catch (NoSuchMethodError e) {
             for (Pattern patt : banner.getPatterns()) {
-                result.append(MSG.theme() + patt.getPattern().toString().toLowerCase()).append(":")
+                result.append(MSG.theme()).append(patt.getPattern().toString().toLowerCase()).append(":")
                         .append(patt.getColor().toString().toLowerCase()).append(" ");
             }
         }

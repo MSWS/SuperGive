@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Def.iml" filepath="$PROJECT_DIR$/Def.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SuperGive.iml" filepath="$PROJECT_DIR$/SuperGive.iml" />
     </modules>
   </component>
 </project>

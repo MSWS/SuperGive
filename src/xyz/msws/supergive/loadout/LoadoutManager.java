@@ -22,7 +22,7 @@ import java.util.Set;
  */
 public class LoadoutManager extends AbstractModule {
 
-    private Map<String, Loadout> loads = new HashMap<>();
+    private final Map<String, Loadout> loads = new HashMap<>();
 
     public LoadoutManager(SuperGive plugin) {
         super(plugin);
@@ -76,10 +76,8 @@ public class LoadoutManager extends AbstractModule {
         loadout = event.getLoadout();
         loads.put(key, loadout);
         ConfigurationSection section = plugin.getConfig().getConfigurationSection("Loadouts");
-        if (section == null) {
-            plugin.getConfig().createSection("Loadouts");
-            section = plugin.getConfig().getConfigurationSection("Loadouts");
-        }
+        if (section == null)
+            section = plugin.getConfig().createSection("Loadouts");
         section.set(key, loadout);
         plugin.saveConfig();
     }

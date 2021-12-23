@@ -14,7 +14,7 @@ public interface ItemAttribute {
      *
      * @param line
      * @param item
-     * @return
+     * @return the resulting itemstack
      */
     ItemStack modify(String line, ItemStack item);
 
@@ -23,7 +23,7 @@ public interface ItemAttribute {
      * of an itemstack.
      *
      * @param item
-     * @return
+     * @return the list of modifications
      */
     String getModification(ItemStack item);
 
@@ -33,7 +33,7 @@ public interface ItemAttribute {
      * user-friendly.
      *
      * @param item
-     * @return
+     * @return a user-friendly version of the modifications
      */
     String humanReadable(ItemStack item);
 
@@ -50,7 +50,7 @@ public interface ItemAttribute {
      * @param current
      * @param args
      * @param sender
-     * @return
+     * @return the list of tab completion options
      */
     List<String> tabComplete(String current, String[] args, CommandSender sender);
 }

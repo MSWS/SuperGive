@@ -4,7 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,7 +34,7 @@ public class PermissionSelector implements Selector {
     public List<String> tabComplete(String current) {
         if (!current.toLowerCase().startsWith("perm:")) {
             if ("perm:".startsWith(current.toLowerCase()))
-                return Arrays.asList("perm:");
+                return Collections.singletonList("perm:");
             return null;
         }
         return null;

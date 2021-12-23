@@ -7,7 +7,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import xyz.msws.supergive.utils.MSG;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -45,7 +45,7 @@ public class LoreAttribute implements ItemAttribute {
     public List<String> tabComplete(String current, String[] args, CommandSender sender) {
         if (!current.toLowerCase().startsWith("lore:")) {
             if ("lore:".startsWith(current.toLowerCase()))
-                return Arrays.asList("lore:");
+                return Collections.singletonList("lore:");
             return null;
         }
         return null;

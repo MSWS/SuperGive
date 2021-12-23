@@ -18,16 +18,16 @@ import java.util.stream.Collectors;
  */
 public class NativeSelector extends AbstractModule implements Selector {
 
-    private List<Selector> selectors = new ArrayList<>(); // List to keep order
+    private final List<Selector> selectors = new ArrayList<>(); // List to keep order
 
     public NativeSelector(SuperGive plugin) {
         super(plugin);
     }
 
-    @Override
     /**
      * First selector should be widest to smallest
      */
+    @Override
     public List<Entity> getEntities(String arg, CommandSender sender) {
         List<Entity> result = new ArrayList<>();
         for (String string : arg.split(",")) {
@@ -65,11 +65,11 @@ public class NativeSelector extends AbstractModule implements Selector {
                     continue;
                 if (result.isEmpty()) {
                     result = res;
-                    msg.append(MSG.theme() + sel.getDescriptor(string, sender));
+                    msg.append(MSG.theme()).append(sel.getDescriptor(string, sender));
                 } else {
                     // Filter entities that aren't included
                     result = result.stream().filter(re -> res.contains(re)).collect(Collectors.toList());
-                    msg.append(" &7that are ").append(MSG.theme() + sel.getDescriptor(string, sender));
+                    msg.append(" &7that are ").append(MSG.theme()).append(sel.getDescriptor(string, sender));
                 }
             }
         }

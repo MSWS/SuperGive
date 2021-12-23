@@ -27,7 +27,7 @@ public class Utils {
                 CColor custom = null;
                 custom = CColor.valueOf(line.toUpperCase());
                 return custom.bukkit();
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException ignored) {
             }
 
         }
@@ -53,7 +53,7 @@ public class Utils {
     }
 
     public static PotionEffectType getPotionEffect(String type) {
-        String result = getOption(type, Arrays.asList(PotionEffectType.values()).stream().filter(p -> p != null)
+        String result = getOption(type, Arrays.stream(PotionEffectType.values()).filter(p -> p != null)
                 .map(potion -> potion.getName()).collect(Collectors.toList()));
         return result == null ? null : PotionEffectType.getByName(result);
     }
@@ -63,7 +63,7 @@ public class Utils {
         return result == null ? null : ItemFlag.valueOf(result);
     }
 
-    public static String getOption(String key, List<? extends Object> options) {
+    public static String getOption(String key, List<?> options) {
         List<String> values = options.stream().map(m -> m.toString()).collect(Collectors.toList());
         for (String s : values) {
             if (MSG.normalize(s).equals(MSG.normalize(key)))

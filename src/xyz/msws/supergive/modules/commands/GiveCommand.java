@@ -51,12 +51,12 @@ import java.util.List;
 @SuppressWarnings("deprecation")
 public class GiveCommand extends BukkitCommand {
 
-    private Selector selector;
-    private ItemBuilder builder;
-    private SuperGive plugin;
+    private final Selector selector;
+    private final ItemBuilder builder;
+    private final SuperGive plugin;
 
-    protected GiveCommand(SuperGive plugin, String name) {
-        super(name);
+    protected GiveCommand(SuperGive plugin) {
+        super("give");
         this.plugin = plugin;
         this.setPermission("supergive.command.give");
         this.setAliases(Arrays.asList("g", "sg", "supergive"));
@@ -222,9 +222,8 @@ public class GiveCommand extends BukkitCommand {
 
         for (Entity ent : targets) {
             if (ent instanceof Player)
-                ((Player) ent).playSound(((Player) ent).getLocation(), Sounds.ITEM_PICKUP.bukkitSound(), 2, 1);
-            if (ent instanceof CommandSender)
-                Lang.GIVE_RECEIVER.send((CommandSender) ent, sender.getName(), loadout.humanReadable());
+                ((Player) ent).playSound(ent.getLocation(), Sounds.ITEM_PICKUP.bukkitSound(), 2, 1);
+            Lang.GIVE_RECEIVER.send(ent, sender.getName(), loadout.humanReadable());
             if (ent instanceof LivingEntity) {
                 loadout.give(new DynamicHolder((LivingEntity) ent));
             } else if (ent instanceof InventoryHolder) {
@@ -239,7 +238,7 @@ public class GiveCommand extends BukkitCommand {
     @Override
     public List<String> tabComplete(CommandSender sender, String alias, String[] args) throws IllegalArgumentException {
         List<String> result = new ArrayList<>();
-        if (!(sender.hasPermission(this.getPermission())))
+        if (this.getPermission() != null && !(sender.hasPermission(this.getPermission())))
             return result;
 
         if (args.length == 1 && sender.hasPermission("supergive.command.reset")

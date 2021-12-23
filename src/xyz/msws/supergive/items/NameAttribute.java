@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import xyz.msws.supergive.utils.MSG;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -43,7 +43,7 @@ public class NameAttribute implements ItemAttribute {
             return null;
         if (!current.toLowerCase().startsWith("name:")) {
             if ("name:".startsWith(current.toLowerCase()))
-                return Arrays.asList("name:");
+                return Collections.singletonList("name:");
             return null;
         }
         return null;

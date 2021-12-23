@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 public class SuperGive extends JavaPlugin {
 
-    private Set<AbstractModule> modules = new HashSet<>();
+    private final Set<AbstractModule> modules = new HashSet<>();
     private YamlConfiguration lang;
     private static SuperGive instance;
 

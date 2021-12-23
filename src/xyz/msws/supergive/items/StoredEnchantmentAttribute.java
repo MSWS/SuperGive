@@ -53,7 +53,7 @@ public class StoredEnchantmentAttribute implements ItemAttribute {
         StringBuilder builder = new StringBuilder();
         try {
             for (Entry<Enchantment, Integer> entry : book.getStoredEnchants().entrySet()) {
-                builder.append("stored:" + MSG.normalize(entry.getKey().getKey().getKey()));
+                builder.append("stored:").append(MSG.normalize(entry.getKey().getKey().getKey()));
                 if (entry.getValue() != 1)
                     builder.append(":").append(entry.getValue());
                 builder.append(" ");
@@ -61,7 +61,7 @@ public class StoredEnchantmentAttribute implements ItemAttribute {
         } catch (NoSuchMethodError e) {
             // 1.8 Compatibility
             for (Entry<Enchantment, Integer> entry : book.getStoredEnchants().entrySet()) {
-                builder.append("stored:" + MSG.normalize(entry.getKey().getName()));
+                builder.append("stored:").append(MSG.normalize(entry.getKey().getName()));
                 if (entry.getValue() != 1)
                     builder.append(":").append(entry.getValue());
                 builder.append(" ");

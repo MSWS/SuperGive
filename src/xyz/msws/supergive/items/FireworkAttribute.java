@@ -65,13 +65,13 @@ public class FireworkAttribute implements ItemAttribute {
                     if (s.startsWith("power")) {
                         try {
                             fire.setPower(Integer.parseInt(s.substring("power".length()).trim()));
-                        } catch (NumberFormatException e) {
+                        } catch (NumberFormatException ignored) {
                         }
                     }
                     try {
                         Type type = Type.valueOf(s.toUpperCase());
                         effect.with(type);
-                    } catch (IllegalArgumentException e) {
+                    } catch (IllegalArgumentException ignored) {
                     }
                     break;
             }
@@ -100,12 +100,9 @@ public class FireworkAttribute implements ItemAttribute {
             FireworkEffect effect = fire.getEffects().get(i);
 
             result.append("firework:");
-            StringBuilder eff = new StringBuilder(String.join(" ",
-                    effect.getColors().stream().map(c -> colorToString(c)).collect(Collectors.toList())));
-            result.append(eff).append(",");
+            result.append(effect.getColors().stream().map(this::colorToString).collect(Collectors.joining(" "))).append(",");
             if (!effect.getFadeColors().isEmpty()) {
-                result.append(String.join(" ",
-                        effect.getFadeColors().stream().map(c -> colorToString(c)).collect(Collectors.toList())))
+                result.append(effect.getFadeColors().stream().map(this::colorToString).collect(Collectors.joining(" ")))
                         .append(",");
             }
             result.append(effect.getType());

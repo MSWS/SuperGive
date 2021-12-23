@@ -21,7 +21,8 @@ import java.util.*;
  */
 public class ContentsAttribute implements ItemAttribute {
 
-    private SuperGive plugin;
+    private static final Set<String> allowed = new HashSet<>(
+            Arrays.asList("chest", "opper", "dispenser", "furnace", "box", "barrel"));
 
     public ContentsAttribute(SuperGive plugin) {
         this.plugin = plugin;
@@ -77,6 +78,10 @@ public class ContentsAttribute implements ItemAttribute {
         return null;
     }
 
+    private static final Map<String, Boolean> cache = new HashMap<>();
+    private final SuperGive plugin;
+
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     private boolean itemsEqual(ItemStack[] array1, ItemStack[] array2) {
         for (int i = 0; i < Math.max(array1.length, array2.length); i++) {
             // Check contents manually
@@ -84,20 +89,13 @@ public class ContentsAttribute implements ItemAttribute {
             ItemStack b = array2.length > i ? array2[i] : null;
             if (a == b)
                 continue;
-            if (a == null && b != null)
-                return false;
-            if (a != null && b == null)
+            if (a == null || b == null)
                 return false;
             if (!a.equals(b))
                 return false;
         }
         return true;
     }
-
-    private static Set<String> allowed = new HashSet<>(
-            Arrays.asList(new String[]{"chest", "opper", "dispenser", "furnace", "box", "barrel"}));
-
-    private static Map<String, Boolean> cache = new HashMap<>();
 
     private static boolean allow(String key) {
         if (cache.containsKey(key))
@@ -120,7 +118,7 @@ public class ContentsAttribute implements ItemAttribute {
             return null;
         if (!current.toLowerCase().startsWith("contents:#")) {
             if ("contents:#".startsWith(current.toLowerCase()))
-                return Arrays.asList("contents:#");
+                return Collections.singletonList("contents:#");
             return null;
         }
         List<String> result = new ArrayList<>();

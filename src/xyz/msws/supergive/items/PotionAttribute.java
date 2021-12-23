@@ -91,7 +91,7 @@ public class PotionAttribute implements ItemAttribute {
         for (PotionEffect effect : potion.getCustomEffects()) {
             result.append(MSG.theme());
             result.append(MSG.camelCase(effect.getType().getName())).append(" which lasts ")
-                    .append(MSG.getTime(effect.getDuration() * 50));
+                    .append(MSG.getTime(effect.getDuration() * 50L));
             if (effect.getAmplifier() != 0)
                 result.append(" ").append(effect.getAmplifier());
             result.append(", ");

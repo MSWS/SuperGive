@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -47,7 +47,7 @@ public class OwnerAttribute implements ItemAttribute {
         }
         if (!current.toLowerCase().startsWith("owner:")) {
             if ("owner:".startsWith(current.toLowerCase()))
-                return Arrays.asList("owner:");
+                return Collections.singletonList("owner:");
             return null;
         }
         return null;

@@ -7,7 +7,7 @@ import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 import xyz.msws.supergive.utils.MSG;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -69,7 +69,7 @@ public class DamageAttribute implements ItemAttribute {
     public List<String> tabComplete(String current, String[] args, CommandSender sender) {
         if (!"damage:".startsWith(current.toLowerCase()))
             return null;
-        return Arrays.asList("damage:");
+        return Collections.singletonList("damage:");
     }
 
     @Override

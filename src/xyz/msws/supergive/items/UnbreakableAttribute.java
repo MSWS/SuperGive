@@ -7,7 +7,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -87,7 +87,7 @@ public class UnbreakableAttribute implements ItemAttribute {
     public List<String> tabComplete(String current, String[] args, CommandSender sender) {
         if (!current.toLowerCase().startsWith("unbrekable:")) {
             if ("unbreakable:".startsWith(current.toLowerCase()))
-                return Arrays.asList("unbreakable:");
+                return Collections.singletonList("unbreakable:");
             return null;
         }
         return null;

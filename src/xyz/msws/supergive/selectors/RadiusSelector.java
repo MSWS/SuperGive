@@ -6,7 +6,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -47,7 +47,7 @@ public class RadiusSelector implements Selector {
     public List<String> tabComplete(String current) {
         if (!current.toLowerCase().startsWith("radius:")) {
             if ("radius:".startsWith(current.toLowerCase()))
-                return Arrays.asList("radius:");
+                return Collections.singletonList("radius:");
             return null;
         }
         return null;

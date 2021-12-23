@@ -13,7 +13,7 @@ public enum CColor {
     ORANGE(Color.ORANGE), PURPLE(Color.PURPLE), RED(Color.RED), SILVER(Color.SILVER), TEAL(Color.TEAL),
     WHITE(Color.WHITE), YELLOW(Color.YELLOW);
 
-    private Color bColor;
+    private final Color bColor;
 
     CColor(Color bukkit) {
         this.bColor = bukkit;

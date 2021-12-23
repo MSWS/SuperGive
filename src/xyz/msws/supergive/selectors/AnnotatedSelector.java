@@ -12,7 +12,7 @@ import xyz.msws.supergive.utils.MSG;
 import xyz.msws.supergive.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
  */
 public class AnnotatedSelector implements Selector {
 
-    private SuperGive plugin;
+    private final SuperGive plugin;
 
     public AnnotatedSelector(SuperGive plugin) {
         this.plugin = plugin;
@@ -79,7 +79,7 @@ public class AnnotatedSelector implements Selector {
                     return null;
                 if (!sender.hasPermission("supergive.selector.annotated.self"))
                     return null;
-                return Arrays.asList(((Entity) sender));
+                return Collections.singletonList(((Entity) sender));
             default:
                 if (key.startsWith("world")) {
                     // Sender can specify world-limited targets

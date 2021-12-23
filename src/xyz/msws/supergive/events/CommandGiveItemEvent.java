@@ -17,7 +17,7 @@ public class CommandGiveItemEvent extends Event {
 
     private static final HandlerList handlers = new HandlerList();
 
-    private Loadout loadout;
+    private final Loadout loadout;
     private List<Entity> receivers;
 
     public CommandGiveItemEvent(CommandSender sender, List<Entity> receiver, Loadout items) {

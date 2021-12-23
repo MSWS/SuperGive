@@ -8,7 +8,7 @@ import xyz.msws.supergive.utils.MSG;
 import xyz.msws.supergive.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,7 +46,7 @@ public class WorldSelector implements Selector {
     public List<String> tabComplete(String current) {
         if (!current.toLowerCase().startsWith("world:")) {
             if ("world".startsWith(current.toLowerCase()))
-                return Arrays.asList("world:");
+                return Collections.singletonList("world:");
             return null;
         }
         List<String> result = new ArrayList<>();

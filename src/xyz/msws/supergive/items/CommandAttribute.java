@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -57,7 +57,7 @@ public class CommandAttribute implements ItemAttribute {
             return null;
         if (!current.toLowerCase().startsWith("command:")) {
             if ("command:".startsWith(current.toLowerCase()))
-                return Arrays.asList("command:");
+                return Collections.singletonList("command:");
             return null;
         }
         return null;

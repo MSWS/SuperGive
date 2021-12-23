@@ -135,7 +135,7 @@ public enum Sounds {
     VILLAGER_HIT("VILLAGER_HIT", "ENTITY_VILLAGER_HURT"), VILLAGER_IDLE("VILLAGER_IDLE", "ENTITY_VILLAGER_AMBIENT"),
     VILLAGER_NO("VILLAGER_NO", "ENTITY_VILLAGER_NO"), VILLAGER_YES("VILLAGER_YES", "ENTITY_VILLAGER_YES");
 
-    private String[] versionDependentNames;
+    private final String[] versionDependentNames;
     private org.bukkit.Sound cached = null;
 
     Sounds(String... versionDependentNames) {

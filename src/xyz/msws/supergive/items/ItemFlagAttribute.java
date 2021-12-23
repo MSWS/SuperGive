@@ -9,7 +9,7 @@ import xyz.msws.supergive.utils.MSG;
 import xyz.msws.supergive.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,7 +49,7 @@ public class ItemFlagAttribute implements ItemAttribute {
     public List<String> tabComplete(String current, String[] args, CommandSender sender) {
         if (!current.toLowerCase().startsWith("flag:")) {
             if ("flag:".startsWith(current.toLowerCase()))
-                return Arrays.asList("flag:");
+                return Collections.singletonList("flag:");
             return null;
         }
         List<String> result = new ArrayList<>();
@@ -75,9 +75,8 @@ public class ItemFlagAttribute implements ItemAttribute {
         ItemMeta meta = item.getItemMeta();
         if (meta.getItemFlags().isEmpty())
             return null;
-        List<String> flags = new ArrayList<>();
 
-        flags.addAll(meta.getItemFlags().stream().map(f -> MSG.theme() + MSG.camelCase(f.toString()))
+        List<String> flags = new ArrayList<>(meta.getItemFlags().stream().map(f -> MSG.theme() + MSG.camelCase(f.toString()))
                 .collect(Collectors.toList()));
         return "with the flag" + (flags.size() == 1 ? "" : "s") + ": &e" + String.join("&7, &e", flags);
     }

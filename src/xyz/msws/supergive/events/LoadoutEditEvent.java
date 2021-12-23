@@ -12,7 +12,7 @@ import xyz.msws.supergive.loadout.Loadout;
 public class LoadoutEditEvent extends LoadoutEvent {
     private static final HandlerList handlers = new HandlerList();
 
-    private Loadout before;
+    private final Loadout before;
 
     public LoadoutEditEvent(Player editor, Loadout before, Loadout after) {
         super(after);

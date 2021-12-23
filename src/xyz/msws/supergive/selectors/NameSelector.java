@@ -6,7 +6,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,17 +28,17 @@ public class NameSelector implements Selector {
             // 1.8 Compatibility
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.getName().equalsIgnoreCase(arg))
-                    return Arrays.asList(p); // VanillaSelector doesn't work so we can add it
+                    return Collections.singletonList(p); // VanillaSelector doesn't work so we can add it
             }
         }
 
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (p.getName().toLowerCase().startsWith(arg.toLowerCase()))
-                return Arrays.asList(p);
+                return Collections.singletonList(p);
         }
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (p.getName().toLowerCase().contains(arg.toLowerCase()))
-                return Arrays.asList(p);
+                return Collections.singletonList(p);
         }
         return null;
     }

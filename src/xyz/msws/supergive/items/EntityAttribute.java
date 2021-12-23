@@ -10,7 +10,7 @@ import xyz.msws.supergive.utils.MSG;
 import xyz.msws.supergive.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -67,7 +67,7 @@ public class EntityAttribute implements ItemAttribute {
         if (!args[1].equalsIgnoreCase("spawner"))
             return null;
         if ("entity:".startsWith(current.toLowerCase()) && !current.equalsIgnoreCase("entity:")) {
-            return Arrays.asList("entity:");
+            return Collections.singletonList("entity:");
         } else {
             List<String> result = new ArrayList<>();
             for (EntityType type : EntityType.values()) {

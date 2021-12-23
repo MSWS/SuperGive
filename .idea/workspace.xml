@@ -1,21 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d06410a-fdd7-48d2-9415-0ac70d1af842" name="Default Changelist" comment="" />
+    <list default="true" id="8d06410a-fdd7-48d2-9415-0ac70d1af842" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_21_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_16_R0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_16_4_R0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuperGive.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/SuperGive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/SuperGive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/events/CommandGiveItemEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/events/CommandGiveItemEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/events/LoadoutEditEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/events/LoadoutEditEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/CommandAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/CommandAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/ContentsAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/ContentsAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/DamageAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/DamageAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/EntityAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/EntityAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/FireworkAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/FireworkAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/ItemAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/ItemAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/ItemBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/ItemBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/ItemFlagAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/ItemFlagAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/LoreAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/LoreAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/NameAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/NameAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/OwnerAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/OwnerAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/PatternAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/PatternAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/PotionAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/PotionAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/StoredEnchantmentAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/StoredEnchantmentAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/UnbreakableAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/UnbreakableAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/items/VanillaAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/items/VanillaAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/loadout/DynamicHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/loadout/DynamicHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/loadout/Loadout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/loadout/Loadout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/loadout/LoadoutManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/loadout/LoadoutManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/modules/AbstractModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/modules/AbstractModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/modules/commands/CommandModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/modules/commands/CommandModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/modules/commands/GenerateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/modules/commands/GenerateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/modules/commands/GiveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/modules/commands/GiveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/modules/commands/LoadoutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/modules/commands/LoadoutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/AnnotatedSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/AnnotatedSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/NameSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/NameSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/NativeSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/NativeSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/PermissionSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/PermissionSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/RadiusSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/RadiusSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/VanillaSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/VanillaSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/WorldSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/selectors/WorldSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/utils/CColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/utils/CColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/utils/Lang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/utils/Lang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/utils/MSG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/utils/MSG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/utils/Sounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/utils/Sounds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xyz/msws/supergive/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xyz/msws/supergive/utils/Utils.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="usePluginRegistry" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1YviLmEqybGkuc47QRqNY17blbZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -26,7 +100,37 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583829414352</updated>
+      <workItem from="1617687493422" duration="1229000" />
+      <workItem from="1618094417950" duration="14000" />
+      <workItem from="1640279704698" duration="410000" />
     </task>
+    <task id="LOCAL-00001" summary="Reformat Code / Optimize Imports">
+      <created>1617687602101</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617687602101</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Reformat Code / Optimize Imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformat Code / Optimize Imports" />
   </component>
 </project>

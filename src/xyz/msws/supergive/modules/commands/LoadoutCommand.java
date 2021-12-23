@@ -35,21 +35,20 @@ import java.util.Map.Entry;
 @SuppressWarnings("deprecation")
 public class LoadoutCommand extends BukkitCommand {
 
-    private SuperGive plugin;
-    private LoadoutManager lm;
+    private final SuperGive plugin;
+    private final LoadoutManager lm;
+    private final Map<UUID, String> loadouts = new HashMap<>();
+    private final Map<UUID, ItemStack[]> items = new HashMap<>();
 
     public LoadoutCommand(SuperGive plugin, String name) {
         super(name);
-        this.setAliases(Arrays.asList("ld"));
+        this.setAliases(Collections.singletonList("ld"));
         this.setPermission("supergive.command.loadout");
         this.setDescription("Manage loadouts");
         this.setUsage("[create/delete/modify]");
         this.plugin = plugin;
         lm = plugin.getModule(LoadoutManager.class);
     }
-
-    private Map<UUID, String> loadouts = new HashMap<>();
-    private Map<UUID, ItemStack[]> items = new HashMap<>();
 
     @Override
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {

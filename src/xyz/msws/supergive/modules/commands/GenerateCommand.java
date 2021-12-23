@@ -19,10 +19,10 @@ import xyz.msws.supergive.utils.MSG;
  */
 public class GenerateCommand extends BukkitCommand {
 
-    private SuperGive plugin;
+    private final SuperGive plugin;
 
-    protected GenerateCommand(SuperGive plugin, String name) {
-        super(name);
+    protected GenerateCommand(SuperGive plugin) {
+        super("generate");
         this.plugin = plugin;
         this.setPermission("supergive.command.generate");
     }
@@ -38,7 +38,7 @@ public class GenerateCommand extends BukkitCommand {
         }
         Player player = (Player) sender;
         ItemStack item = player.getInventory().getItemInHand();
-        if (item == null || item.getType() == Material.AIR) {
+        if (item.getType() == Material.AIR) {
             Lang.MUST_HAVE_ITEM.send(sender);
             return true;
         }

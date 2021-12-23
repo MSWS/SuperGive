@@ -54,9 +54,9 @@ public class CommandModule extends AbstractModule implements Listener {
 
         MSG.log("&9Enabling commands...");
 
-        commands.put(new GiveCommand(plugin, "give"), false);
+        commands.put(new GiveCommand(plugin), false);
         commands.put(new LoadoutCommand(plugin, "loadout"), false);
-        commands.put(new GenerateCommand(plugin, "generate"), false);
+        commands.put(new GenerateCommand(plugin), false);
 
         List<Command> cmds = new ArrayList<>();
         for (Command cmd : commands.keySet()) {
@@ -80,7 +80,7 @@ public class CommandModule extends AbstractModule implements Listener {
             for (Player p : Bukkit.getOnlinePlayers()) {
                 p.updateCommands();
             }
-        } catch (NoSuchMethodError e) {
+        } catch (NoSuchMethodError ignored) {
 
         }
     }
@@ -104,7 +104,7 @@ public class CommandModule extends AbstractModule implements Listener {
             for (Player p : Bukkit.getOnlinePlayers()) {
                 p.updateCommands();
             }
-        } catch (NoSuchMethodError e) {
+        } catch (NoSuchMethodError ignored) {
 
         }
     }
@@ -116,16 +116,14 @@ public class CommandModule extends AbstractModule implements Listener {
         } catch (NoSuchMethodError | IllegalAccessException | IllegalArgumentException | InvocationTargetException
                 | NoSuchMethodException | SecurityException e) {
             try {
-                final Map<String, Command> knownCommands = (Map<String, Command>) getPrivateField(map, "knownCommands");
-                return knownCommands;
+                return (Map<String, Command>) getPrivateField(map, "knownCommands");
             } catch (SecurityException | IllegalArgumentException | IllegalAccessException e1) {
                 e1.printStackTrace();
             } catch (NoSuchFieldException e2) {
                 // 1.16
                 try {
-                    Map<String, Command> knownCommands = (Map<String, Command>) map.getClass()
+                    return (Map<String, Command>) map.getClass()
                             .getMethod("getKnownCommands").invoke(map);
-                    return knownCommands;
                 } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException
                         | NoSuchMethodException | SecurityException e1) {
                     e1.printStackTrace();

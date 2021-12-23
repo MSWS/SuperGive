@@ -47,8 +47,9 @@ public enum Lang {
     NOTALL_BUILDER("Command.Result.Warn.AttributePerms",
             "%prefix% &cYou lacked permissions for these modifications: &b%s&7.");
 
-    private String key;
-    private Object value, def;
+    private final String key;
+    private final Object def;
+    private Object value;
 
     Lang(String key, Object value) {
         this.key = key;
@@ -89,7 +90,7 @@ public enum Lang {
 
     /**
      * Sends the message to the {@link CommandSender}, if there are placeholders
-     * they will be formatted via {@link String#formatted(Object...)}.
+     * they will be formatted via {@link String#format(String, Object...)}.
      *
      * @param sender
      * @param params

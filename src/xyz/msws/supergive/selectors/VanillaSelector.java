@@ -6,7 +6,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -53,7 +53,7 @@ public class VanillaSelector implements Selector {
     public List<String> tabComplete(String current) {
         if (!current.toLowerCase().startsWith("@")) {
             if ("@".startsWith(current.toLowerCase()))
-                return Arrays.asList("@");
+                return Collections.singletonList("@");
         }
         List<String> result = new ArrayList<>();
         for (String s : new String[]{"a", "p", "e", "r", "s"}) {

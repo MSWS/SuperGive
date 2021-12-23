@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ItemBuilder extends AbstractModule {
 
-    private List<ItemAttribute> attr = new ArrayList<>();
+    private final List<ItemAttribute> attr = new ArrayList<>();
 
     public ItemBuilder(SuperGive plugin) {
         super(plugin);
@@ -52,18 +52,18 @@ public class ItemBuilder extends AbstractModule {
             amo = Integer.parseInt(args.split(" ")[1]);
         }
 
-        String last = "";
+        StringBuilder last = new StringBuilder();
         for (String arg : (String[]) ArrayUtils.subarray(args.split(" "), amoSpecified ? 2 : 1,
                 args.split(" ").length)) {
-            if (!last.isEmpty() && arg.contains(":")) {
-                attributes.add(last.trim());
-                last = arg + " ";
+            if ((last.length() > 0) && arg.contains(":")) {
+                attributes.add(last.toString().trim());
+                last = new StringBuilder(arg + " ");
                 continue;
             }
-            last += arg + " ";
+            last.append(arg).append(" ");
         }
-        if (last.contains(":"))
-            attributes.add(last.trim());
+        if (last.toString().contains(":"))
+            attributes.add(last.toString().trim());
 
         // Reverse order
         for (Material m : Material.values()) { // Check incomplete middles

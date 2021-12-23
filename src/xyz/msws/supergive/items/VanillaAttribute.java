@@ -10,7 +10,7 @@ import xyz.msws.supergive.utils.MSG;
 import xyz.msws.supergive.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -50,7 +50,7 @@ public class VanillaAttribute implements ItemAttribute {
             return null;
         StringBuilder result = new StringBuilder();
         for (Entry<Attribute, AttributeModifier> entry : meta.getAttributeModifiers().entries()) {
-            result.append("attribute:" + MSG.normalize(entry.getKey().toString()) + ":" + entry.getValue().getAmount())
+            result.append("attribute:").append(MSG.normalize(entry.getKey().toString())).append(":").append(entry.getValue().getAmount())
                     .append(" ");
         }
 
@@ -81,7 +81,7 @@ public class VanillaAttribute implements ItemAttribute {
             return null;
         if (!current.toLowerCase().startsWith("attribute:")) {
             if ("attribute:".startsWith(current.toLowerCase()))
-                return Arrays.asList("attribute:");
+                return Collections.singletonList("attribute:");
             return null;
         }
 
